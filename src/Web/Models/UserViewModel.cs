@@ -13,6 +13,7 @@ namespace Web.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Не указан номер телефона")]
+        [RegularExpression(@"^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$", ErrorMessage = "Введенный формат телефона недействителен")]
         [Display(Name = "Номер телефона")]
         public string PhoneNumber { get; set; }
     }

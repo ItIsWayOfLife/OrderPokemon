@@ -36,7 +36,7 @@ namespace Core.Services
 
             if (user != null)
             {
-                if (item.Name != user.Name)
+                if (item.Name.ToLower() != user.Name.ToLower())
                 {
                     throw new ValidationException($"Данный email уже занят пользователем по имени {user.Name}", string.Empty);
                 }
