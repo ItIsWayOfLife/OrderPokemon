@@ -1,0 +1,27 @@
+﻿@model Web.Models.ListOrderViewModel
+@{
+    ViewBag.Title = "Заказы";
+}
+
+<div class="row mb-5">
+    <div class="col-6 m-auto">
+        <div class="card m-auto">
+            <div class="card-header">
+                <h3>Заказы</h3>
+            </div>
+            <div class="card-body">
+                    <div>
+
+                        @foreach (var order in Model.Orders)
+                        {
+                            <p>
+                                "@order.DateTimeOrder.ToString("hh:mm") @order.DateTimeOrder.ToString("dd:MM:yyyy")
+                                @order.UserName заказал покемона уже @order.OrderQuantity раз".
+                            </p>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

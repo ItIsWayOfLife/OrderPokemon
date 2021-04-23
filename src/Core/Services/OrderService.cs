@@ -32,20 +32,21 @@ namespace Core.Services
 
         public IEnumerable<OrderDTO> GetAll()
         {
-            var orders = Database.Order.GetAll();
+            var orders = Database.Order.GetAll().ToList();
+            var users = Database.User.GetAll().ToList();
 
             var orderDTOs = new List<OrderDTO>();
 
             foreach (var order in orders)
             {
-                var user = Database.User.Get(order.UserId);
+                var user = users.Where(p=>p.Id == order.UserId).FirstOrDefault();
 
                 orderDTOs.Add(new OrderDTO()
                 {
                     DateTimeOrder = order.DateTimeOrder,
-                    UserName = user.Email,
-                    OrderQuantity = Database.Order.GetAll().OrderByDescending(p => p.DateTimeOrder)
-                        .Where(p => p.UserId == user.Id).Count()
+                    UserName = user.Name,
+                    OrderQuantity = Database.Order.GetAll().OrderBy(p => p.DateTimeOrder)
+                        .Where(p => p.UserId == user.Id && p.DateTimeOrder <= order.DateTimeOrder).Count()
                 });
             }
 
