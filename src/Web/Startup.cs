@@ -1,6 +1,7 @@
 using Core.Interfaces.Repositories;
 using Core.Interfaces.Services;
 using Core.Services;
+using EmailService;
 using Infrastructure.Entities;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +32,13 @@ namespace Web
         {
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CatalogConnection")));
+
+            var emailConfig = Configuration.GetSection("EmailConfiguration")
+              .Get<EmailConfiguration>();
+
+            services.AddSingleton(emailConfig);
+
+            services.AddScoped<IEmailSender, EmailSender>();
 
             services.AddTransient<IUnitOfWork, EFUnitOfWork>();
 

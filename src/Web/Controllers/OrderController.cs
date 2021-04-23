@@ -3,11 +3,10 @@ using Core.DTOs;
 using Core.Entities;
 using Core.Exceptions;
 using Core.Interfaces.Services;
+using EmailService;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Web.Models;
 
 namespace Web.Controllers
@@ -16,11 +15,14 @@ namespace Web.Controllers
     {
         private readonly IUserService _userService;
         private readonly IOrderService _orderService;
+        private readonly IEmailSender _emailSender;
 
-        public OrderController(IUserService userService, IOrderService orderService)
+        public OrderController(IUserService userService, IOrderService orderService,
+            IEmailSender emailSender)
         {
             _userService = userService;
             _orderService = orderService;
+            _emailSender = emailSender;
         }
 
         [HttpGet]
@@ -41,6 +43,9 @@ namespace Web.Controllers
 
                     _userService.Create(user);
                     _orderService.Create(user.Email);
+
+                    var message = new Message(new string[] { $"{userViewModel.Email}" }, "Заказ успешно оформлен", $"Поздравляем, {userViewModel.Name} вы успешно оформили заказ покемона");
+                    _emailSender.SendEmail(message);
 
                     return RedirectToAction("GetListOrders");
                 }
