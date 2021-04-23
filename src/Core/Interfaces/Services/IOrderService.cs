@@ -1,23 +1,23 @@
-﻿using Core.Entities;
+﻿using Core.DTOs;
 using System.Collections.Generic;
 
-namespace Core.Interfaces.Repositories
+namespace Core.Interfaces.Services
 {
     /// <summary>
-    /// Repository for working DB with entity Order.
+    /// Service for working with entity Order.
     /// </summary>
-    public interface IOrderRepository
+    public interface IOrderService
     {
         /// <summary>
         /// Create new model.
         /// </summary>
-        /// <param name="item">Creatable model.</param>
-        void Create(Order item);
+        /// <param name="userEmail">User email.</param>
+        void Create(string userEmail);
 
         /// <summary>
         /// Get all models.
         /// </summary>
         /// <returns>IEnumerable models.</returns>
-        IEnumerable<Order> GetAll();
+        IEnumerable<OrderDTO> GetAll();
     }
 }
