@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "src\Core\Core.cspro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{32DBA383-109D-4FE9-A54E-615C1DD2E494}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{CA0C28CD-669E-4F2B-B877-028F1D107D0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "src\EmailService\EmailService.csproj", "{15D05D4D-45DA-4EF0-98EA-23973F89DADD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{32DBA383-109D-4FE9-A54E-615C1DD2E494}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32DBA383-109D-4FE9-A54E-615C1DD2E494}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32DBA383-109D-4FE9-A54E-615C1DD2E494}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CA0C28CD-669E-4F2B-B877-028F1D107D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA0C28CD-669E-4F2B-B877-028F1D107D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA0C28CD-669E-4F2B-B877-028F1D107D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA0C28CD-669E-4F2B-B877-028F1D107D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15D05D4D-45DA-4EF0-98EA-23973F89DADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15D05D4D-45DA-4EF0-98EA-23973F89DADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15D05D4D-45DA-4EF0-98EA-23973F89DADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15D05D4D-45DA-4EF0-98EA-23973F89DADD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
