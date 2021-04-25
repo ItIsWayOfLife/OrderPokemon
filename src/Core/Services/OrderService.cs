@@ -6,6 +6,7 @@ using Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace Core.Services
 {
     public class OrderService : IOrderService
@@ -19,7 +20,7 @@ namespace Core.Services
 
         public void Create(string UserEmail)
         {
-            Order order = new Order();
+            var order = new Order();
 
             int? userId = Database.User.FindByEmail(UserEmail).Id;
 

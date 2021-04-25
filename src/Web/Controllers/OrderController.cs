@@ -65,7 +65,7 @@ namespace Web.Controllers
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<OrderDTO, OrderViewModel>()).CreateMapper();
             var orders = mapper.Map<IEnumerable<OrderDTO>, List<OrderViewModel>>(orderDTOs);
 
-            return View(new ListOrderViewModel() {  Orders = orders.OrderByDescending(p=>p.DateTimeOrder)});
+            return View(new ListOrderViewModel() {  Orders = orders.OrderByDescending(p => p.DateTimeOrder) });
         }
     }
 }

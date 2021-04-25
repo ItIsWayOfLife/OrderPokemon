@@ -10,11 +10,12 @@ namespace Web.Models
 
         [Required(ErrorMessage = "Не указан email")]
         [Display(Name = "Email")]
+        [EmailAddress(ErrorMessage = "Некорректно указан email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Не указан номер телефона")]
-        [RegularExpression(@"^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$", ErrorMessage = "Введенный формат телефона недействителен")]
         [Display(Name = "Номер телефона")]
+        [RegularExpression(@"^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$", ErrorMessage = "Введенный формат телефона недействителен")]
         public string PhoneNumber { get; set; }
     }
 }
